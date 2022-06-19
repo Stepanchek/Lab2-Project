@@ -1,0 +1,28 @@
+{
+    "name": "PartyQuiz",
+    "rootNamespace": "",
+    "references": [
+        "Unity.TextMeshPro",
+        "UniTask",
+        "UniTask.DOTween",
+        "Zenject",
+        "DOTween.Modules",
+        "AwaitExtensions",
+        "PackSerialization",
+        "StandaloneFileBrowser",
+        "UniRx",
+        "Cinemachine",
+        "TextTyper.asm",
+        "RTVoice.asm",
+        "Utils"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,15 @@
+[package]
+name = "party_quiz"
+version = "0.1.0"
+authors = ["Anton Smetanin <Anton.Smetanin@gmail.com>"]
+
+[dependencies]
+ws = "*"
+serde = "1.0.66"
+serde_json = "1.0.21"
+serde_derive = "1.0.66"
+uuid = { version = "0.7.2", features = ["serde", "v4"] }
+
+[profile.release]
+lto = true
+panic = 'abort'

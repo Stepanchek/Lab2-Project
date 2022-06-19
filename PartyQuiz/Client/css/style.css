@@ -1,0 +1,368 @@
+body
+{
+	background: #232323;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Roboto Mono", monospace;
+}
+
+.score {
+    margin: 40px auto;
+	color: #fff;
+	font: 18px Helvetica;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+  color: #fff;
+  font: 24px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+form {
+  display: table;
+  margin: 40px auto;
+  touch-action: manipulation;
+}
+
+form label {
+  position: relative;
+  display: block;
+}
+
+form label input {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+form label input::-webkit-input-placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+
+form label input:-ms-input-placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+
+form label input::-ms-input-placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+
+form label input::placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+
+form label input:focus, form label input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+
+form label input:focus::-webkit-input-placeholder, form label input.populated::-webkit-input-placeholder {
+  color: transparent;
+}
+
+form label input:focus:-ms-input-placeholder, form label input.populated:-ms-input-placeholder {
+  color: transparent;
+}
+
+form label input:focus::-ms-input-placeholder, form label input.populated::-ms-input-placeholder {
+  color: transparent;
+}
+
+form label input:focus::placeholder, form label input.populated::placeholder {
+  color: transparent;
+}
+
+form label input:focus + span, form label input.populated + span {
+  opacity: 1;
+  top: 10px;
+}
+
+form label span {
+  color: #696969;
+  font: 13px Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+body .center {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  margin-left: -100px;
+  margin-top: 0px;
+}
+
+body .center .select-button {
+  width: 200px;
+  height: 180px;
+  line-height: 300px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 80%;
+  background: #f74d4d -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f74d4d), color-stop(100%, #f86569));
+  box-shadow: 0 15px #e24f4f;
+  touch-action: manipulation;
+}
+
+body .center .select-button:active {
+  box-shadow: 0 0 #e24f4f;
+  -webkit-transform: translate(0px, 15px);
+  -moz-transform: translate(0px, 15px);
+  -ms-transform: translate(0px, 15px);
+  -o-transform: translate(0px, 15px);
+  -webkit-transition: 0.1s all ease-out;
+  -moz-transition: 0.1s all ease-out;
+  -ms-transition: 0.1s all ease-out;
+  -o-transition: 0.1s all ease-out;
+  transition: 0.1s all ease-out;
+}
+
+.button_info_provided {
+  background-color: #228B22;
+  border: 1px solid green;
+  color: white;
+  padding: 15px 100px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+}
+
+.button_leave {
+  background-color: #f44336;
+  border: 1px solid red;
+  padding: 15px 92px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+}
+
+.button_resume {
+  background-color: #228B22;
+  border: 1px solid green;
+  color: white;
+  padding: 15px 100px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+}
+
+.auction {
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+
+.auction_label {
+  text-align: center;
+  font-size: 9vh;
+  color: white;
+}
+
+.auction_input {
+  font-size: 5vh;
+}
+
+.auction_button {
+  font-size: 6vh;
+  background-color: #228B22;
+  border: 1px solid green;
+  color: white;
+}
+
+.auction_button:disabled {
+  background-color: #738573;
+}
+
+.fill {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  width: 300px;
+}
+
+.fill::after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.fill:hover::after {
+  top: 0px;
+  left: 0px;
+}
+
+.all_here_name {
+  display: table;
+  margin: 40px auto;
+  color: #fff;
+  font: 18px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.button_role {
+  background-color: #4CAF50;
+  border: 1px solid green;
+  color: white;
+  padding: 15px 150px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+}
+
+.button_avatar {
+  background-color: #4CAF50;
+  border: 1px solid green;
+  color: white;
+  padding: 15px 43px;
+  text-align: center;  
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.player_answers_label
+{
+  color: #fff;
+  font: 30px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.question_selected_label
+{
+  color: #fff;
+  font: 30px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.explanatory_label
+{
+  color: #A9A9A9;
+  font: 15px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.you_answer_label
+{
+  color: #008000;
+  font: 150px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: auto;
+}
+
+.empty_space {
+  margin-bottom: 2cm;
+}
+
+.button_answer_correct {
+  background-color: #228B22;
+  border: 1px solid green;
+  color: white;
+  padding: 15px 100px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  margin: auto auto 1cm;
+}
+
+.button_answer_incorrect {
+  background-color: #f44336;
+  border: 1px solid red;
+  padding: 15px 92px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+}
+
+.emoji_button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+th {
+  background-color:  rgb(212, 212, 212);
+  border: 0px;
+  width: 200px; 
+  height: 100px; 
+  text-align: center;
+}
+
+td {
+  border: 1px solid black;
+  background-color:  rgb(192, 245, 227);  
+  width: 100px; 
+  text-align: center;
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Helper.Editor.asm",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b37b1406e5425a740b235803ab7e1ae0",
+        "GUID:e89ffd51bfd3fdd4289876c37d127ad5"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

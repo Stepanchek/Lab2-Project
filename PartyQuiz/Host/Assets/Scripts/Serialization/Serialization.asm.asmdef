@@ -1,0 +1,18 @@
+{
+    "name": "PackSerialization",
+    "rootNamespace": "",
+    "references": [
+        "GUID:769cd75b1ffde87408b403b3ca112d22",
+        "GUID:b37b1406e5425a740b235803ab7e1ae0",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

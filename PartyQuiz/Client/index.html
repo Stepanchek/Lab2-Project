@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>PARTY QUIZ</title>
+
+  <script type="text/javascript" src="js/jquery_min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/socket.js"></script>
+  <script type="text/javascript" src="js/avatars.js"></script>
+  <script type="text/javascript" src="js/selection.js"></script>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>PARTY QUIZ</h1>
+
+  <div id="emoji_group" hidden>
+    <button type="button" class="emoji_button" onclick="PlayEmoji('Happy')">happy</button>
+    <button type="button" class="emoji_button" onclick="PlayEmoji('Sad')">sad</button>
+    <button type="button" class="emoji_button" onclick="PlayEmoji('Puke')">puke</button>
+    <button type="button" class="emoji_button" onclick="PlayEmoji('Poop')">poop</button>
+    <button type="button" class="emoji_button" onclick="PlayEmoji('Cool')">cool</button>
+    <button type="button" class="emoji_button" onclick="PlayEmoji('Tired')">tired</button>
+  </div>
+
+  <h1 id="title"></h1>
+
+  <form>
+    <div id="enter_id_group" hidden>
+      <label>
+        <input id="game_id" type="text" placeholder="Game ID" oninput="this.value = this.value.toUpperCase()">Game ID</input>
+        <span>Please enter the game ID</span>
+      </label>
+
+      <button id="join_game_button" type="button" class="fill" onclick="TryJoinGame()">Join</button>
+      <label id="error_label" class="score"></label>
+    </div>
+
+    <div id="resume_game_group" hidden>
+      <button type="button" class="button_resume" onclick="ResumeGame()">Resume game</button>
+      <button type="button" class="button_leave" onclick="LeaveGame()">Leave game</button>
+    </div>
+
+    <div id="role_selection_group" hidden>
+      <label class="explanatory_label">If you want to host the whole game <br> and decide who's right and who's wrong <br> select [Host]:</label>
+      <button type="button" class="button_role" onclick="SetHostRole()">Host</button>
+
+      <p class="empty_space"></p>
+
+      <label class="explanatory_label">If you want to participate <br> and answer the provided questions <br> select [Player]:</label>
+      <button type="button" class="button_role" onclick="SetPlayerRole()">Player</button>
+
+      <label class="all_here_name" id = "role_set_error"></label>
+    </div>
+
+    <div id="set_info_group" hidden>
+      <label>
+        <input id="player_name" type="text" placeholder="Name">Your name</input>
+        <span>What is your name?</span>
+      </label>          
+
+      <div id="gender_group" class="container" hidden>
+        <button type="button" class="button_avatar" onclick="SetGender('male')">Male</button>
+        <button type="button" class="button_avatar" onclick="SetGender('female')">Female</button>
+      </div>
+    
+      <div id="avatar_group" hidden>
+        <div id="slide_cont"  class="container">
+          <img id="slideshow_image" class="avatar">
+        </div>
+        <div class="container">
+          <button type="button" class="button_avatar" id="prev_image" onclick="PrevAvatar()">&lt</button>
+          <button type="button" class="button_avatar" id="next_image" onclick="NextAvatar()">&gt</button>
+        </div>
+        <input type="hidden" id="img_no" value="0">
+      </div>
+
+      <p class="empty_space"></p>
+
+      <label class="all_here_name" id = "info_set_error"></label>
+      <button type="button" class="button_info_provided" onclick="SetInfo()">Set info</button>
+    </div>
+
+    <div id="all_here_host_group" hidden>
+      <button type="button" class="button_info_provided" onclick="CallAllHere()">All here</button>
+    </div>
+
+    <div id="all_here_player_group" hidden>
+      <label class="all_here_name">You are:</label>
+      <label class="all_here_name" id = "all_here_player_name">UnnamedPlayer</label>
+    </div>
+
+    <div id="select_question_player_group" hidden>
+      <label class="all_here_name" id = "select_question_player_group_name">UnnamedPlayer</label>
+      <label class="all_here_name" id = "select_question_player_group_score">000</label>
+    </div>
+
+    <div class="center" id = "can_answer_player_group" hidden>
+      <button type="button" class="select-button" id = "answer_button" onmousedown="AnswerButtonPressed()"></button>
+    </div>
+
+    <div id = "question_selected_group" hidden>
+      <label class="explanatory_label">SELECTED CATEGORY:</label>
+      <label class="question_selected_label" id = "question_selected_theme">Unnamed Theme</label>
+
+      <label class="explanatory_label">QUESTION PRICE:</label>
+      <label class="question_selected_label" id = "question_selected_price">000</label>
+    </div>
+
+    <div id = "right_answer_group" hidden>
+      <label class="explanatory_label">RIGHT ANSWER:</label>
+      <label class="player_answers_label" id = "right_answer">No answer</label>
+    </div>
+
+    <div id="player_answers_host_group" hidden>
+      <label class="explanatory_label">ANSWERS PLAYER:</label>
+      <label class="player_answers_label" id = "answering_player">VYVERON228</label>
+
+      <p class="empty_space"></p>
+
+      <label class="explanatory_label">That was totally correct</label>
+      <button type="button" class="button_answer_correct" onclick="ReportAnswerDecision(true)">CORRECT</button>
+
+      <label class="explanatory_label">Not a chance, that was wrong</label>
+      <button type="button" class="button_answer_incorrect" onclick="ReportAnswerDecision(false)">INCORRECT</button>
+    </div>
+
+    <div id="you_answer_group" hidden>
+      <label class="you_answer_label">GO!</label>
+    </div>
+
+    <div id="cat_in_poke_player_group" hidden>
+      <label class="all_here_name" >Selecting cat in poke victim</label>
+    </div>
+
+    <div id="all_questions_answered_host_group" hidden>
+      <button type="button" class="button_info_provided" onclick="CallNextRound()">Next round</button>
+    </div>
+
+    <div id="all_questions_answered_player_group" hidden>
+      <label class="all_here_name">Next round is about to begin</label>
+    </div>
+
+    <div id="skip_sequence_group" hidden>
+      <button type="button" class="button_info_provided" onclick="SkipSequence()">SKIP EXPLANATION</button>
+    </div>
+
+  </form>
+
+  <div id="select_question_host_group" hidden>
+    <table id="questions_table" cellspacing="0" cellpadding="0"></table>
+  </div>
+
+  <div id="cat_in_poke_host_group" hidden>
+    <table id="cat_in_poke_table" cellspacing="0" cellpadding="0"></table>
+  </div>
+
+  <div id="auction_host_group" hidden>
+    <button type="button" id="button_end_auction" class="button_end_auction" onclick="window.auctionHostPage.onEndAuction()">End this atrocity</button>
+  </div>
+
+  <div id="auction_player_group" style="position: absolute; top: 20%; height: 80%; width: 50vh" hidden>
+    <label id="highest_bidder" class="auction auction_label" style="left: 50%; top: 20%">Mister T</label>
+    <label id="highest_bid" class="auction auction_label" style="left: 50%; top: 35%">600</label>
+    <input id="your_bid" class="auction auction_input" type="number" placeholder="your bid" onblur="window.auctionPage.validateBid()" style="left: 50%; top: 60%; width: 35%; height: 10%" />
+    <button id="button_bid" type="button" class="auction auction_button" onclick="window.auctionPage.onBidClicked(window.auction)" style="left: 30%; top: 80%; width: 35%; height: 10%">Bid</button>
+    <button id="button_pass" type="button" class="auction auction_button" onclick="window.auctionPage.onPassClicked()" style="left: 70%; top: 80%; width: 35%; height: 10%">Pass</button>
+    <label id="not_enough_points" class="auction auction_label" style="left: 50%; top: 70%; font-size: 6vh">Not enough points</label>
+    <label id="you_are_highest_bidder" class="auction auction_label" style="left: 50%; top: 70%; font-size: 6vh">You're the highest bidder!</label>
+    <label id="passing" class="auction auction_label" style="left: 50%; top: 70%; font-size: 6vh">Passing...</label>
+  </div>
+
+  <script type="text/javascript" src="js/commands.js"></script>
+
+</body>
+</html>

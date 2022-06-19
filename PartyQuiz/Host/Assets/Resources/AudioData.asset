@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f9cbf6d2034d8e8a0b2f1ae23fd3a4, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  PositiveStings:
+  - {fileID: 8300000, guid: 284bee788bfa1044c99a7a8e93b080cd, type: 3}
+  NegativeStings:
+  - {fileID: 8300000, guid: c286feabf9590ab458c57170a02f5952, type: 3}
+  - {fileID: 8300000, guid: d6d2ffb3b436de640b8c02010ba37881, type: 3}
+  - {fileID: 8300000, guid: 0d9dfe0b085cceb42904e57b84faf188, type: 3}
+  Applause:
+  - {fileID: 8300000, guid: 7e4f00bf0e8d27447928dc193ada9928, type: 3}
+  - {fileID: 8300000, guid: 1cf84f815582c9346a27a05ddff61ae8, type: 3}
+  - {fileID: 8300000, guid: a3a729cd38d5a7c468fdfb4a82d4bf56, type: 3}
+  - {fileID: 8300000, guid: 6b7b71a20cde5a14aaa7479ca8a819c6, type: 3}
+  - {fileID: 8300000, guid: ea821189b0740d84984b3e75ff96a4a8, type: 3}
+  NextRound: {fileID: 8300000, guid: 30a087209fd65984fb3d9d60778d7fde, type: 3}
+  CatInPoke: {fileID: 8300000, guid: 775a7a9d782d13641963dc685368f6a3, type: 3}

@@ -1,0 +1,18 @@
+{
+    "name": "SiqConverter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e89ffd51bfd3fdd4289876c37d127ad5",
+        "GUID:769cd75b1ffde87408b403b3ca112d22",
+        "GUID:b37b1406e5425a740b235803ab7e1ae0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
